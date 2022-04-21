@@ -1,3 +1,7 @@
+# Output
+![Output](https://github.com/Vaibhavraj-nath-chauhan/Onboarding-Mini-Project/raw/main/React%20Mini%20%5BOptional%5D/Test.PNG)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
