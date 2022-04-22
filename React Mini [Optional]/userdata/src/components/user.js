@@ -3,7 +3,6 @@ import {Button} from 'react-bootstrap'
 import Card from "react-bootstrap/Card";
 import './user.css';
 
-
 class User extends React.Component{
     constructor(props){
         super(props);
@@ -15,11 +14,29 @@ class User extends React.Component{
             data:null,
             support:null,
             isSearched : false,
+            flag : true,
+            pager:1
+
         }
     }
+    handleClick = () => {
+
+                    if(this.state.flag===true){
+                        this.setState({
+                        flag :false,
+                        pager : 2
+                        })
+                    }
+                    else{
+                        this.setState({
+                        flag :true,
+                        pager : 1
+                        })
+                    }
+            };
 
     render(){
-        fetch("https://reqres.in/api/users")
+        fetch(`https://reqres.in/api/users/?page=${this.state.pager}`)
                 .then(res=>res.json())
                 .then(res=>{
                    this.setState({
@@ -34,7 +51,6 @@ class User extends React.Component{
         })
 
         return(
-
             <div>
                 {
                             this.state.isSearched?<span>
@@ -72,10 +88,8 @@ class User extends React.Component{
                                 <div>
                                     <p style={{color:"red"}}>Something Went Wrong</p>
                                 </div>
-
-
-
                  }
+                 <button  className="button button2" onClick={this.handleClick}>Toggle</button>
                </div>
 
         )
